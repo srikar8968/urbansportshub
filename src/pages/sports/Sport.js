@@ -17,7 +17,7 @@ const WrapperInner = styled.div`
 	position: relative;
 	display: flex;
 	justify-content: start;
-	align-items: center;
+	align-items: start;
 	flex-wrap: wrap;
 `
 const Content = styled.div`
