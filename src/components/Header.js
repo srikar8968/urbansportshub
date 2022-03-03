@@ -171,7 +171,7 @@ const Header = ({ theme }) => {
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 				</MenuCloseBtn>
 				<Link className="mb-logo" to="/">
-					<Logo ref={logoRef} src="/images/logo-nw.png" alt="Urban Sports Hub" />
+					<Logo ref={logoRef} src="/images/logo-new.png" alt="Urban Sports Hub" />
 				</Link>
 				<Link ref={el => menuItemsRef.current[0] = el} to="/about">About</Link>
 				<Link ref={el => menuItemsRef.current[1] = el} to="/sports">Sports</Link>
@@ -184,7 +184,7 @@ const Header = ({ theme }) => {
 				<Container>
 					<WrapperInner>
 						<Link to="/">
-							<Logo ref={logoRef} src="/images/logo-nw.png" alt="Urban Sports Hub" />
+							<Logo ref={logoRef} src="/images/logo-new.png" alt="Urban Sports Hub" />
 						</Link>
 						<NavigationList theme={theme}>
 							<Link to="/about">About</Link>
