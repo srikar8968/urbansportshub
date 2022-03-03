@@ -1,4 +1,5 @@
-import React from "react"
+import { animate, stagger } from "motion"
+import React, { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
@@ -22,6 +23,7 @@ const FacilitySection = styled(Link)`
     background-image: url(${({bgimage}) => '/images/' + bgimage});
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0;
 
     & > div.faciltyInner {
         position: relative;
@@ -86,10 +88,20 @@ const SectionTitle = styled.h2`
 `
 
 const SportsGallery = ({ membership }) => {
+    const itemsRef = useRef([]);
+
+    useEffect(() => {
+		animate(
+            itemsRef.current, 
+            { opacity: 1 },
+            { delay: stagger(0.2), ease: "ease-in-out" });
+	}, [])
+
     return (
         <FacilityWrapper>
         { membership.map((facility, index) => (
             <FacilitySection 
+                ref={el => itemsRef.current[index] = el}
                 to={`/sports/${facility.name.toLowerCase()}`}
                 key={facility.name} 
                 lastchild={ (membership.length === index+1) ? true : false } 

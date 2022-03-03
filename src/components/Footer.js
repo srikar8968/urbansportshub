@@ -28,6 +28,8 @@ const FooterMid = styled.div`
 	}
 	& .FooterMidSections > img {
 		filter: grayscale(1);
+		width: 110px;
+		height: 83px;
 		opacity: 0.5;
 	}
 
@@ -72,7 +74,7 @@ const FooterTop = styled.div`
 
 	& .footerAside {
 		width: 100%;
-		padding: 0 1rem 1rem 1rem; 
+		padding: 1rem 0; 
 	}
 	& .footerAside > h5 {
 		font-weight: 700;
@@ -86,6 +88,8 @@ const FooterTop = styled.div`
 
 	/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
 	@media only screen and (min-width: 768px) {
+		padding: 0;
+
 		& .footerTopInner { 
 			font-size: 1rem;
 			text-align: left;
@@ -109,7 +113,7 @@ const FooterTop = styled.div`
 const FooterBottom = styled.div`
 	padding: .75rem 0;
 	text-align: center;
-	font-size: .875rem;
+	font-size: .75rem;
 	color: #ddd;
 	background-color: #0e1116;
 `
@@ -145,7 +149,7 @@ const Footer = () => {
 			<Container>
 				<FooterMid>
 					<div className="FooterMidSections">
-						<img src="/images/logo-162x55.png" alt="Urban Sports Hub" /><br/>
+						<img src="/images/logo-nw.png" alt="Urban Sports Hub" /><br/>
 						<p>Urban Sports, is the precise address for all your sport needs. Our vision is to develop a fit community all around. Come, Sweat, Live, Love & Hustle!</p>
 					</div>
 					<div className="FooterMidSections">

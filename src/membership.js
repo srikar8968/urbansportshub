@@ -2,7 +2,7 @@ const membership = [
     {
         name: 'Swimming',
         description: 'Don’t be afraid to dive in, you will find what real happiness means, once you get down deep here! be it a pool or in life.',
-        image: 'swimming.png',
+        image: 'swimming.jpg',
         imageFormat: 'jpg',
         content: `The ancient history of swimming does not tell us about a particular date or time of origin for the sport. Cave paintings suggest that prehistoric man was aware of swimming. The art of swimming has made a long journey and is being one of the most popular sports across the globe. Swimming is one of the most delightful & wonderful combinations of fun & fitness. Swimming is a healthy activity that you can continue for a lifetime. It is a low-impact activity that has immense physical as well as mental benefits.
 
@@ -23,30 +23,30 @@ const membership = [
             &bull; An excellent choice for people with disabilities`,
         plans: [
             {
-                name: 'Single',
+                name: 'Individual',
                 price: {
-                    monthly: 15.98,
-                    quarterly: 100,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 1200,
+                    quarterly: 7597.15,
+                    halfYearly: 75971.50,
+                    annual: 136748.70
                 }
             },
             {
-                name: 'Duo',
+                name: 'Couple',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1001,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
                 }
             },
             {
                 name: 'Family',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1111,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
                 }
             }
         ]
@@ -63,30 +63,30 @@ const membership = [
             We present you the best standard futsal/ indoor football court for all the football lovers out there. So, no wait! Kick in, and get your memberships done with us.`,
         plans: [
             {
-                name: 'Single',
+                name: 'Individual',
                 price: {
-                    monthly: 100,
-                    quarterly: 500,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 1200,
+                    quarterly: 7597.15,
+                    halfYearly: 75971.50,
+                    annual: 136748.70
                 }
             },
             {
-                name: 'Duo',
+                name: 'Couple',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1222,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
                 }
             },
             {
                 name: 'Family',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1333,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
                 }
             }
         ]
@@ -111,30 +111,30 @@ const membership = [
             Still, don’t find enough motivation? Come visit us, that is what you find it over here!`,
         plans: [
             {
-                name: 'Single',
+                name: 'Individual',
                 price: {
-                    monthly: 100,
-                    quarterly: 500,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 1200,
+                    quarterly: 7597.15,
+                    halfYearly: 75971.50,
+                    annual: 136748.70
                 }
             },
             {
-                name: 'Duo',
+                name: 'Couple',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1222,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
                 }
             },
             {
                 name: 'Family',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1333,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
                 }
             }
         ]
@@ -158,30 +158,30 @@ const membership = [
             &bull; Sharpens the mind`,
         plans: [
             {
-                name: 'Single',
+                name: 'Individual',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 1200,
+                    quarterly: 7597.15,
+                    halfYearly: 75971.50,
+                    annual: 136748.70
                 }
             },
             {
-                name: 'Duo',
+                name: 'Couple',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
                 }
             },
             {
                 name: 'Family',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
                 }
             }
         ]
@@ -198,34 +198,67 @@ const membership = [
             We are done with our innings with the presentation, let’s get the other innings started by bringing up your footfall, tightening shoelaces, pad-up, and give it a shot!`,
         plans: [
             {
-                name: 'Single',
+                name: 'Individual',
                 price: {
-                    monthly: 100,
-                    quarterly: 500,
-                    halfYearly: 1000,
-                    annual: 1800
+                    monthly: 1200,
+                    quarterly: 7597.15,
+                    halfYearly: 75971.50,
+                    annual: 136748.70
                 }
             },
             {
-                name: 'Duo',
+                name: 'Couple',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1222,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
                 }
             },
             {
                 name: 'Family',
                 price: {
-                    monthly: 200,
-                    quarterly: 500,
-                    halfYearly: 1333,
-                    annual: 1800
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
                 }
             }
         ]
     }
 ];
+
+export const fullClub = {
+    name: 'Full Club Membership - Single, Couple, Family (upto 4)',
+    plans: [
+        {
+            name: 'Individual',
+            price: {
+                monthly: 4999,
+                quarterly: 14500,
+                halfYearly: 25500,
+                annual: 48000
+            }
+        },
+        {
+            name: 'Couple',
+            price: {
+                monthly: 7499,
+                quarterly: 20250,
+                halfYearly: 36000,
+                annual: 63000
+            }
+        },
+        {
+            name: 'Family',
+            price: {
+                monthly: 9999,
+                quarterly: 27500,
+                halfYearly: 51000,
+                annual: 96000
+            }
+        }
+    ]
+}
 
 export default membership;

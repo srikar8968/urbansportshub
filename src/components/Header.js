@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from "react-router-dom";
-import { animate } from "motion"
+import { Link, useLocation } from "react-router-dom";
+import { animate, spring, stagger, timeline } from "motion"
 import Container from './Container'
 
 const Wrapper = styled.div`
@@ -22,6 +22,7 @@ const WrapperInner = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 
 	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
 	@media only screen and (min-width: 992px) {
@@ -29,8 +30,8 @@ const WrapperInner = styled.div`
 	}
 `
 const Logo = styled.img`
-	width: 162px;
-	height: 56px
+	width: 110px;
+	height: 83px;
 `
 const NavigationList = styled.nav`
 	color: ${({theme}) => theme === 'dark' ? '#ddd' : '#000'};
@@ -59,29 +60,95 @@ const MenuWrapper = styled.div`
 	width: 320px;
 	padding: 2rem;
 	z-index: 20;
-	background-color: #000;
+	background-color: rgba(0,0,0,0.9);
+	backdrop-filter: blur(8px);
 	color: #ddd;
-
-	& > a {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	opacity: 0;
+	
+	& > .mb-logo {
+		margin-bottom: 2rem;
+		display: block;
+		filter: grayscale(1);
+		opacity: 0.4
+	}
+	& > a + a {
 		display: block;
 		font-size: 1.5rem;
 		line-height: 1.5;
+		color: #808080;
 		margin-bottom: 1rem;
+		transform: translateX(80px)
+		opacity: 0;
+	}
+	& > a > img {
+		filter: gray;
+		margin: 0 auto;
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        display: none;
+	}
+`
+const MenuCloseBtn = styled.button`
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1rem;
+
+	& > svg {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+`
+const MenuOpenBtn = styled.button`
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	padding: 1rem;
+	color: #727272;
+
+	& > svg {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        display: none;
 	}
 `
 
 const Header = ({ theme }) => {
+	const location = useLocation();
 	const headerRef = useRef(null);
 	const logoRef = useRef(null);
+	const menuRef = useRef(null);
+	const menuItemsRef = useRef([]);
 	const [scrollActive, setScrollActive] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
-		window.addEventListener('scroll', handleScroll)
+		window.addEventListener('scroll', handleScroll);
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		}
 	}, []);
+
+	useEffect(() => {
+		setMenuOpen(false);
+	}, [location.pathname])
+
+	useEffect(() => {
+		const sequence = [
+			[menuRef.current, { x: menuOpen ? 0 : 320, opacity: menuOpen ? 1 : 0 }],
+			[menuItemsRef.current, { x : menuOpen ? 0 : 80, opacity: menuOpen ? 1 : 0 }, { delay: stagger(0.1) }],
+		];
+		timeline(sequence, { defaultOptions: { ease: spring() }});
+	}, [menuOpen])
 
 	const handleScroll = event => {
 		let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
@@ -89,32 +156,35 @@ const Header = ({ theme }) => {
 		if(scrollTop > 80) {
 			setScrollActive(true);
 			animate(headerRef.current, { height: '70px' });
-			animate(logoRef.current, { height: '40px', width: '118px' });
+			animate(logoRef.current, { height: '50px', width: '66px' });
 		} else {
 			setScrollActive(false);
 			animate(headerRef.current, { height: '120px' });
-			animate(logoRef.current, { height: '55px', width: '162px' });
+			animate(logoRef.current, { height: '83px', width: '110px', filter: 'grayscale(0) brightness(1)' });
 		}
 	}
 
 	return (
 		<>
-			<MenuWrapper>
-				<Link to="/">
-					<Logo ref={logoRef} src="/images/logo-162x55.png" alt="Urban Sports Hub" />
+			<MenuWrapper ref={menuRef}>
+				<MenuCloseBtn onClick={() => setMenuOpen(false)}>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+				</MenuCloseBtn>
+				<Link className="mb-logo" to="/">
+					<Logo ref={logoRef} src="/images/logo-nw.png" alt="Urban Sports Hub" />
 				</Link>
-				<Link to="/about">About</Link>
-				<Link to="/sports">Sports</Link>
-				<Link to="/membership">Memberships</Link>
-				<Link to="/pool-based-party-lounge">Party Lounge</Link>
-				<Link to="/restaurant">Restaurant</Link>
-				<Link to="/contact">Contact</Link>
+				<Link ref={el => menuItemsRef.current[0] = el} to="/about">About</Link>
+				<Link ref={el => menuItemsRef.current[1] = el} to="/sports">Sports</Link>
+				<Link ref={el => menuItemsRef.current[2] = el} to="/membership">Memberships</Link>
+				<Link ref={el => menuItemsRef.current[3] = el} to="/pool-based-party-lounge">Party Lounge</Link>
+				<Link ref={el => menuItemsRef.current[4] = el} to="/restaurant">Restaurant</Link>
+				<Link ref={el => menuItemsRef.current[5] = el} to="/contact">Contact</Link>
 			</MenuWrapper>
 			<Wrapper theme={theme} ref={headerRef} active={scrollActive}>
 				<Container>
 					<WrapperInner>
 						<Link to="/">
-							<Logo ref={logoRef} src="/images/logo-162x55.png" alt="Urban Sports Hub" />
+							<Logo ref={logoRef} src="/images/logo-nw.png" alt="Urban Sports Hub" />
 						</Link>
 						<NavigationList theme={theme}>
 							<Link to="/about">About</Link>
@@ -124,6 +194,9 @@ const Header = ({ theme }) => {
 							<Link to="/restaurant">Restaurant</Link>
 							<Link to="/contact">Contact</Link>
 						</NavigationList>
+						<MenuOpenBtn onClick={() => setMenuOpen(true)}>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+						</MenuOpenBtn>
 					</WrapperInner>
 				</Container>
 			</Wrapper>

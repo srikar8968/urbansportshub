@@ -8,20 +8,42 @@ import { Helmet } from "react-helmet";
 const WrapperInner = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	padding: 2rem 0 4rem 0;
+	padding: 1rem 0 2rem 0;
+	
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		padding: 2rem 0 4rem 0;
+	}
 `
 const LeftAside = styled.div`
-	width: 40%;
+	width: 100%;
+	
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		width: 40%;
+	}
 `
 const RightAside = styled.div`
-	padding: 1rem 0 0 4rem;
-	width: 60%
+	padding: 1rem 0 0 0;
+	width: 100%;
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		padding: 1rem 0 0 4rem;
+		width: 60%;
+	}
 `
 const ConatctHeader = styled.h1`
-	font-size: 4rem;
+	font-size: 2rem;
 	color: #2e2e2e;
 	line-height: 1.2;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		font-size: 4rem;
+		margin-bottom: 2rem;
+	}
 `
 
 const FormControl = styled.div`

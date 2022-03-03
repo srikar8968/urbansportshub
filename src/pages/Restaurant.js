@@ -1,11 +1,12 @@
 import styled from "styled-components"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import HeroContainer from "../components/HeroContainer"
 import Container from '../components/Container'
 import { Helmet } from "react-helmet";
+import { timeline } from "motion";
 
 const RestaurantWrapper = styled(HeroContainer)`
-  padding: 160px 0 40px 0;
+  padding: 140px 0 20px 0;
   overflow: hidden;
   background-color: #0a0a0e;
 
@@ -17,6 +18,10 @@ const RestaurantWrapper = styled(HeroContainer)`
     right: 0;
     bottom: 0;
   }
+  /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        padding: 160px 0 40px 0;
+    }
 `
 const RestaurantBackdrop = styled.video.attrs(props => ({
   autoPlay: "true",
@@ -36,21 +41,42 @@ const RestaurantBackdrop = styled.video.attrs(props => ({
   z-index: 0
 `
 const RestaurantHeader = styled.h1`
-	font-size: 4rem;
-	color: #ddd;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #ddd;
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        font-size: 4rem;
+    }
 `
 const RestaurantContent = styled.div`
     background-color: #150f0f;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     & p {
         color: #ddd;
         // color: #0a0a0e;
         font-size: 1.125rem;
     }
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
 `
 
 const Restaurant = () => {
+    const titleRef = useRef(null);
+	const contentRef = useRef(null);
+
+	useEffect(() => {
+		const sequence = [
+			[titleRef.current, { y: [150, 0], opacity: [0, 1] }],
+			[contentRef.current, { opacity: [0, 1] }]
+		]
+		timeline(sequence, { defaultOptions: { duration: 0.5 } });
+	}, [])
     return (
         <>
         <Helmet>
@@ -65,11 +91,11 @@ const Restaurant = () => {
             </RestaurantBackdrop>
 
             <Container>
-                <RestaurantHeader>Restaurant</RestaurantHeader>
+                <RestaurantHeader ref={titleRef}>Restaurant</RestaurantHeader>
             </Container>
         </RestaurantWrapper>
         <RestaurantContent>
-            <Container>
+            <Container ref={contentRef}>
                 <p>Hyderabadi’s are very well known for being foodies. But, are we sure what we eat is safe for our bodies? Do we take the necessary diet that our bodies actually call for? The science tells that diet plays a very major role in being fit. There is no point in expecting a fruitful result with just an intense activity and no proper rich diet styles. All around the world, there is much junk available out rather than a healthy choice.
                 <br/><br/>
                 Therefore, we at our hub bring food with the best combination of both nutrition and taste together with our own signature blends. Apart from this Hyderabad, being one of the fully loaded cities, have highly accommodating structures such as apartments and high rise towers, etc. Hence, having interesting setup restaurants are our city’s favorites. Food nutrition, taste & quality always top our priority list, but, the ambiance is also equally significant.

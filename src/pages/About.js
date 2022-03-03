@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import HeroContainer from '../components/HeroContainer'
 import Container from '../components/Container'
 import { Helmet } from "react-helmet";
+import { animate, stagger, timeline } from 'motion';
 
 const AboutWrapper = styled(HeroContainer)`
 	padding: 140px 0;
@@ -29,31 +30,74 @@ const AboutWrapper = styled(HeroContainer)`
 const AboutHeaderSection = styled.div`
 	display: flex;
 	align-items: center;
-	margin-bottom: 4rem;
+	margin-bottom: 1rem;
 	& > img {
-		width: 420px;
-		min-height: 280px;
+		display: none;
+		width: 320px;
+		min-height: 213px;
         flex-shrink: 0;
 		max-width: 100%;
 		margin-left: 2rem;
 		border-radius: 19% 81% 70% 30% / 36% 34% 66% 64% ;
 		background-color: #ddd;
-		box-shadow: 0px 0px 20px 2px #ddd;
+		// box-shadow: 0px 0px 20px 2px #ddd;
+		opacity: 0;
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		margin-bottom: 4rem;
+		
+        & > img {
+			display: block;
+		}
+	}
+	/*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 1200px) {
+		& > img {
+			width: 420px;
+			min-height: 280px;
+		}
 	}
 `
 const AboutHeader = styled.h1`
-	font-size: 4rem;
+	font-size: 3rem;
 	color: #2e2e2e;
 	line-height: 1.2;
+	opacity: 0;
+	
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        font-size: 4rem;
+	}
 `
 const AboutSubHeader = styled.h2`
-	font-size: 1.25rem;
+	font-size: 1rem;
 	font-weight: 600;
 	color: #bbb;
 	letter-spacing: 5px;
+	opacity: 0;
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        font-size: 1.25rem;
+    }
 `
 
 const About = () => {
+	const titleRef = useRef([]);
+	const imgRef = useRef(null);
+	const contentRef = useRef(null);
+
+	useEffect(() => {
+		const sequence = [
+			[titleRef.current, { x : [-150, 0], opacity: [0, 1] }, { delay: stagger(0.2) }],
+			[imgRef.current, { scale: [0.75, 1], opacity: [0, 1] }],
+			[contentRef.current, { opacity: [0, 1] }]
+		]
+		timeline(sequence, { defaultOptions: { duration: 0.5 } });
+	}, [])
+
 	return (
 		<AboutWrapper>
 			<Helmet>
@@ -65,12 +109,12 @@ const About = () => {
 			<Container>
 				<AboutHeaderSection>
 					<div>
-						<AboutSubHeader>ABOUT US</AboutSubHeader>
-						<AboutHeader>We are a young multisport hub</AboutHeader>
+						<AboutSubHeader ref={el => titleRef.current[0] = el}>ABOUT US</AboutSubHeader>
+						<AboutHeader ref={el => titleRef.current[1] = el}>We are a young multisport hub</AboutHeader>
 					</div>
-					<img src="/images/pages/golf.jpg" alt="about-us" />
+					<img ref={imgRef} src="/images/pages/golf.jpg" alt="about-us" />
 				</AboutHeaderSection>
-				<div>We are a young multisport hub from Hyderabad based at Alwal, Secunderabad. India has been a very fit nation in the good olden times, and the very major reason for this is their outstanding muscular routine and intense sporting culture. This made the nations to turn their head towards our very own originated sports such as kabaddi and antiquated hockey & badminton etc. and imbibed the sports to their routine and having healthy and fit lifestyles. Now, it’s our turn to get back to the pavilion and attain personal fitness, which our nation is running behind these days.
+				<div ref={contentRef}>We are a young multisport hub from Hyderabad based at Alwal, Secunderabad. India has been a very fit nation in the good olden times, and the very major reason for this is their outstanding muscular routine and intense sporting culture. This made the nations to turn their head towards our very own originated sports such as kabaddi and antiquated hockey & badminton etc. and imbibed the sports to their routine and having healthy and fit lifestyles. Now, it’s our turn to get back to the pavilion and attain personal fitness, which our nation is running behind these days.
 				<br/><br/>
 				Therefore, understanding the physical as well as mental, physical strain and the polluted environments the Hyderabadi’s are being through, this hub strives to provide you best version of fun, fitness, and fabulousness together helping you to revive from the sedentary and hectic lifestyles. Understanding the scarcity of resources and the restraining conditions, we promise to present you a massive & spacious sporting arena with cultivated teams, brilliant & flawless equipment, comfortable amenities & facilities and many more.
 				<br/><br/>

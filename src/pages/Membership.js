@@ -1,55 +1,93 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import Container from "../components/Container"
-import membership from "../membership"
+import membership, { fullClub } from "../membership"
 import { Helmet } from "react-helmet";
+import { animate, stagger, timeline } from "motion";
 
 const MembershipWrapper = styled.div`
-    padding: 40px 0;
+    padding: 20px 0;
     font-size: 1.125rem;
     & ul {
 		list-style: disc;
 		padding: 8px 0 0 32px;
 	}
+    
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        padding: 40px 0;
+    }
 `
-
 const MembershipHeaderSection = styled.div`
-	display: flex;
-	align-items: center;
-	margin-bottom: 5rem;
-	& > img {
-		min-height: 280px;
-		width: 420px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    & > img {
+        display: none;
+        width: 320px;
+        min-height: 213px;
         flex-shrink: 0;
-		max-width: 100%;
-		margin-left: 2rem;
-		border-radius: 19% 81% 70% 30% / 36% 34% 66% 64% ;
-		background-color: #ddd;
-	}
+        max-width: 100%;
+        margin-left: 2rem;
+        border-radius: 19% 81% 70% 30% / 36% 34% 66% 64% ;
+        background-color: #ddd;
+        // box-shadow: 0px 0px 20px 2px #ddd;
+        opacity: 0;
+    }
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        margin-bottom: 5rem;
+        
+        & > img {
+            display: block;
+        }
+    }
+    /*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 1200px) {
+        & > img {
+            width: 420px;
+            min-height: 280px;
+        }
+    }
 `
 const MembershipHeader = styled.h1`
-	font-size: 4rem;
-	color: #2e2e2e;
-	line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #2e2e2e;
+    line-height: 1.2;
+    opacity: 0;
+    margin-bottom: .5rem;
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
 `
 const MembershipSubHeader = styled.h2`
-	font-size: 1.25rem;
+	font-size: 1rem;
 	font-weight: 600;
 	color: #bbb;
 	letter-spacing: 5px;
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        font-size: 1.25rem;
+    }
 `
 const MembershipBox = styled.div`
     padding: 4rem 0;
+    overflow: hidden;
 `
 const MembershipTabs = styled.div`
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
-    justify-content: space-between
+    justify-content: start
 `
 const MembershipTab = styled.button`
-    width: 100%;
-    padding: 1rem .75rem;
+    width: 50%;
+    padding: 1rem;
     border-bottom: 2px solid ${({active}) => active ? 'var(--primary)' : '#ddd'};
     font-weight: 600;
     color: ${({active}) => active ? '#828282' : '#0a0a0e'};
@@ -57,9 +95,21 @@ const MembershipTab = styled.button`
     &:hover {
         background-color: rgba(0,0,0,0.05);
     }
+
+    /*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 768px) {
+        width: 33.333%;
+	}
+    
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+    @media only screen and (min-width: 992px) {
+        width: 20%;
+    }
 `
 const MembershipPlanBox = styled.div`
     display: flex;
+    max-width: 100%;
+    overflow-x: scroll;
 `
 const MembershipPlanTable = styled.table`
     width: 100%;
@@ -83,6 +133,7 @@ const MembershipPlanTable = styled.table`
     }
     & tbody > tr > td {
         padding: 1rem;
+        white-space: nowrap;
     }
     & .plan, & th:first-child {
         width: 180px;
@@ -93,6 +144,31 @@ const MembershipPlanTable = styled.table`
 
 const Membership = () => {
     const [activeMembership, setActiveMembership] = useState(0);
+    const titleRef = useRef([]);
+	const contentRef = useRef(null);
+	const imgRef = useRef(null);
+	const membershipRef = useRef(null);
+
+	useEffect(() => {
+		const sequence = [
+			[titleRef.current, { x : [-150, 0], opacity: [0, 1] }, { delay: stagger(0.2) }],
+			[imgRef.current, { scale: [0.75, 1], opacity: [0, 1] }],
+			[contentRef.current, { opacity: [0, 1] }]
+		]
+		timeline(sequence, { defaultOptions: { duration: 0.5 } });
+	}, [])
+
+    useEffect(() => {
+        const sequence = [
+            [membershipRef.current, { x: [0, -100], opacity: [1, 0] }],
+            [membershipRef.current, { x: [100, 0], opacity: [0, 1] }]
+        ];
+        timeline(sequence, { defaultOptions: { duration: 0.2 } });
+    }, [activeMembership])
+
+    const toCurrencyFormat = (price) => {
+        return (price).toLocaleString(undefined, { minimumFractionDigits: 2 });
+    }
 
     return (
         <MembershipWrapper>
@@ -105,13 +181,13 @@ const Membership = () => {
             <Container>
                 <MembershipHeaderSection>
 					<div>
-						<MembershipSubHeader>Sport-Centric Memberships</MembershipSubHeader>
-						<MembershipHeader>Come, find and grab the memberships at our venture</MembershipHeader>
+						<MembershipSubHeader ref={el => titleRef.current[0] = el}>Sport-Centric Memberships</MembershipSubHeader>
+						<MembershipHeader ref={el => titleRef.current[1] = el}>Come, find and grab the memberships at our venture</MembershipHeader>
                         <a href="#priceList">: : : :&nbsp;&nbsp;<small>View Membership Plans</small></a>
 					</div>
-					<img src="/images/pages/membership.jpg" alt="about-us" />
+					<img ref={imgRef} src="/images/pages/membership.jpg" alt="about-us" />
 				</MembershipHeaderSection>
-                <div>
+                <div ref={contentRef}>
                     <div>Are you aware of the sports we provide? Do you love them? You are aware of the benefits? You have made yourself to get fit? Then why wait? Come, find and grab the memberships at our venture with most reasonable prices according to your choice of sport. We have a conviction that “You don’t have to be great to start, but you have to start to be great!” If the thought of new sporting routine excites you, implementing the regime is much more fun and exciting. So look no further and get started now.
                     <br/><br/>
                     We also provide memberships for services in different periods, levels and combinations too. Ask for our quarterly, half yearly and annual memberships for extra benefits because “Fitness is not a destination, it’s a way of life” and “The consistency is what transforms an average into excellence!”
@@ -144,7 +220,7 @@ const Membership = () => {
                         )) }
                     </MembershipTabs>
                     
-                    <MembershipPlanBox>
+                    <MembershipPlanBox ref={membershipRef}>
                         <MembershipPlanTable>
                             <thead>
                                 <tr>
@@ -160,10 +236,39 @@ const Membership = () => {
                                     <tr key={index}>
                                         <td className="plan">{ planItem?.name }</td>
 
-                                        <td>{ planItem?.price?.monthly } USD</td>
-                                        <td>{ planItem?.price?.quarterly } USD</td>
-                                        <td>{ planItem?.price?.halfYearly } USD</td>
-                                        <td>{ planItem?.price?.annual } USD</td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+ GST</small></td>
+                                    </tr>
+                                )) }
+                            </tbody>
+                        </MembershipPlanTable>
+                    </MembershipPlanBox>
+                    <br/>
+                    <MembershipTabs>
+                        <MembershipTab style={{ width: '100%' }} active={false}>{ fullClub.name }</MembershipTab>
+                    </MembershipTabs>
+                    <MembershipPlanBox>
+                        <MembershipPlanTable>
+                            <thead>
+                                <tr>
+                                    <th>PLANS</th>
+                                    <th>MONTHLY</th>
+                                    <th>QUARTERLY</th>
+                                    <th>HALF YEARLY</th>
+                                    <th>ANNUAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { fullClub?.plans?.map((planItem, index) => (
+                                    <tr key={index}>
+                                        <td className="plan">{ planItem?.name }</td>
+
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+ GST</small></td>
                                     </tr>
                                 )) }
                             </tbody>

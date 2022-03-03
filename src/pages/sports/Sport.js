@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import Container from '../../components/Container'
@@ -6,12 +6,18 @@ import HeroContainer from "../../components/HeroContainer"
 import membership from "../../membership";
 import Gallery from "../../components/Gallery"
 import { Helmet } from "react-helmet";
+import { timeline } from 'motion'
 
 const Wrapper = styled(HeroContainer)`
 	background-size: cover;
 	background-repeat: no-repeat;
-	padding: 140px 0;
+	padding: 90px 0 0 0;
 	position: relative;
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		padding: 140px 0;
+	}
 `
 const WrapperInner = styled.div`
 	position: relative;
@@ -21,25 +27,51 @@ const WrapperInner = styled.div`
 	flex-wrap: wrap;
 `
 const Content = styled.div`
-	width: 60%;
-	padding: 80px 140px;
+	width: 100%;
+	order: 0;
+	padding: 35px;
+	overflow: hidden;
+
 	& p {
 		white-space: pre-line;
 		font-size: 1.125rem;
 	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        width: 60%;
+		order: 1;
+		padding: 80px 140px;
+	}
 `
 const SectionHeader = styled.h1`
-	font-size: 4rem;
+	font-size: 3rem;
 	color: #2e2e2e;
 	line-height: 1.2;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        font-size: 4rem;
+		margin-bottom: 2rem;
+	}
 `
 
 const Sport = () => {
 	const { sport } = useParams();
 	const _sport = membership.find(o => o.name.toLowerCase() == sport.toLowerCase());
   	const hostname = window.location.protocol + '//' + window.location.host;
+	const titleRef = useRef(null);
+	const contentRef = useRef(null);
 
+	useEffect(() => {
+		const sequence = [
+			[titleRef.current, { y : [-80, 0], opacity: [0, 1] }],
+			[contentRef.current, { y : [80, 0], opacity: [0, 1] }]
+		]
+		timeline(sequence, { defaultOptions: { duration: 0.5 } });
+	}, [sport])
+	  
 	return (
 		<Wrapper>
 			<Helmet>
@@ -53,8 +85,8 @@ const Sport = () => {
 			<WrapperInner>
 				<Gallery sport={sport} format={_sport.imageFormat} />
 				<Content>
-					<SectionHeader>{_sport.name}</SectionHeader>
-					<p dangerouslySetInnerHTML={{__html: _sport.content}} ></p>
+					<SectionHeader ref={titleRef}>{_sport.name}</SectionHeader>
+					<p ref={contentRef} dangerouslySetInnerHTML={{__html: _sport.content}} ></p>
 				</Content>
 			</WrapperInner>
 		</Wrapper>
