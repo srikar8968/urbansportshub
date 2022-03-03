@@ -15,6 +15,7 @@ const HeroWrapper = styled(HeroContainer)`
   background-image: url('/images/badminton.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 
   &::before {
     content: "";
