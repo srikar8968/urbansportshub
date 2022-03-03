@@ -20,8 +20,13 @@ const Wrapper = styled.div`
 const WrapperInner = styled.div`
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		justify-content: space-between;
+	}
 `
 const Logo = styled.img`
 	width: 162px;
@@ -30,6 +35,7 @@ const Logo = styled.img`
 const NavigationList = styled.nav`
 	color: ${({theme}) => theme === 'dark' ? '#ddd' : '#000'};
 	font-size: 1rem;
+	display: none;
 
 	& > a + a {
 		display: inline-block;
@@ -38,6 +44,29 @@ const NavigationList = styled.nav`
 
 	& > a:hover {
 		color: var(--primary)
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		display: block;
+	}
+`
+const MenuWrapper = styled.div`
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 320px;
+	padding: 2rem;
+	z-index: 20;
+	background-color: #000;
+	color: #ddd;
+
+	& > a {
+		display: block;
+		font-size: 1.5rem;
+		line-height: 1.5;
+		margin-bottom: 1rem;
 	}
 `
 
@@ -69,23 +98,36 @@ const Header = ({ theme }) => {
 	}
 
 	return (
-		<Wrapper theme={theme} ref={headerRef} active={scrollActive}>
-			<Container>
-				<WrapperInner>
-					<Link to="/">
-						<Logo ref={logoRef} src="/images/logo-162x55.png" alt="Urban Sports Hub" />
-					</Link>
-					<NavigationList theme={theme}>
-						<Link to="/about">About</Link>
-						<Link to="/sports">Sports</Link>
-						<Link to="/membership">Memberships</Link>
-						<Link to="/pool-based-party-lounge">Party Lounge</Link>
-						<Link to="/restaurant">Restaurant</Link>
-						<Link to="/contact">Contact</Link>
-					</NavigationList>
-				</WrapperInner>
-			</Container>
-		</Wrapper>
+		<>
+			<MenuWrapper>
+				<Link to="/">
+					<Logo ref={logoRef} src="/images/logo-162x55.png" alt="Urban Sports Hub" />
+				</Link>
+				<Link to="/about">About</Link>
+				<Link to="/sports">Sports</Link>
+				<Link to="/membership">Memberships</Link>
+				<Link to="/pool-based-party-lounge">Party Lounge</Link>
+				<Link to="/restaurant">Restaurant</Link>
+				<Link to="/contact">Contact</Link>
+			</MenuWrapper>
+			<Wrapper theme={theme} ref={headerRef} active={scrollActive}>
+				<Container>
+					<WrapperInner>
+						<Link to="/">
+							<Logo ref={logoRef} src="/images/logo-162x55.png" alt="Urban Sports Hub" />
+						</Link>
+						<NavigationList theme={theme}>
+							<Link to="/about">About</Link>
+							<Link to="/sports">Sports</Link>
+							<Link to="/membership">Memberships</Link>
+							<Link to="/pool-based-party-lounge">Party Lounge</Link>
+							<Link to="/restaurant">Restaurant</Link>
+							<Link to="/contact">Contact</Link>
+						</NavigationList>
+					</WrapperInner>
+				</Container>
+			</Wrapper>
+		</>
 	)
 }
 

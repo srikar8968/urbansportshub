@@ -15,10 +15,10 @@ const FacilitySection = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: ${({lastchild}) => lastchild ? '100%' : '50%'};
-    min-height: ${({lastchild}) => lastchild ? 'auto' : '390px'};;
+    width: 100%;
+    min-height: auto;
     position: relative;
-    padding: 4rem;
+    padding: 2rem;
     background-image: url(${({bgimage}) => '/images/' + bgimage});
     background-size: cover;
     background-repeat: no-repeat;
@@ -46,13 +46,43 @@ const FacilitySection = styled(Link)`
     }
 
     & > div.faciltyInner > p {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
+
+    /*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 576px) {
+
+	}
+
+	/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 768px) {
+        padding: 4rem;
+        
+        & > div.faciltyInner > p {
+            font-size: 1.25rem;
+        }
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        width: ${({lastchild}) => lastchild ? '100%' : '50%'};
+        min-height: ${({lastchild}) => lastchild ? 'auto' : '390px'};
+	}
+
+	/*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 1200px) {
+
+	}
 `
 const SectionTitle = styled.h2`
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     font-weight: 200;
     color: #fff;
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        font-size: 4.5rem;
+	}
 `
 
 const SportsGallery = ({ membership }) => {

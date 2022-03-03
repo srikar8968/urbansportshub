@@ -8,8 +8,8 @@ import SportsGallery from '../components/SportsGallery'
 import { Helmet } from "react-helmet";
 
 const HeroWrapper = styled(HeroContainer)`
-  padding: 180px 0;
-  min-height: 100vh;
+  padding: 160px 0 80px 0;
+  min-height: auto;
   overflow: hidden;
   background-color: #0a0a0e;
   background-image: url('/images/badminton.jpg');
@@ -26,6 +26,11 @@ const HeroWrapper = styled(HeroContainer)`
     backdrop-filter: blur(0px);
     z-index: 0
   }
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        min-height: 100vh;
+	}
 `
 const HeroBackdrop = styled.video.attrs(props => ({
   autoPlay: "true",
@@ -74,10 +79,20 @@ const HeroTagline = styled.div`
     }
 `
 const HeroTitle = styled.h1`
-  font-size: 7rem;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 1);
-  line-height: 1.25
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 1);
+    line-height: 1.2;
+    
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        font-size: 6rem;
+        line-height: 1.25
+	}
+    /*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 1200px) {
+	    font-size: 7rem;
+	}
 `
 const ClientWrapper = styled.div`
     background-image: linear-gradient(to right, #050609, #0c0f14);
@@ -86,16 +101,44 @@ const ClientWrapper = styled.div`
 const ClientSection = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        justify-content: space-between;
+	}
 `
 const ClientItem = styled.div`
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     flex-shrink: 0;
     opacity: 0.5;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 1rem;
+
+    /*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 576px) {
+
+	}
+
+	/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 768px) {
+
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+        height: 150px;
+        width: 150px;
+	}
+
+	/*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 1200px) {
+
+	}
 `
 
 const Home = () => {

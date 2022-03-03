@@ -23,31 +23,87 @@ const FooterMid = styled.div`
 	}
 
 	& .FooterMidSections {
-		width: 33.333%;
-		padding: 2rem;
+		width: 100%;
+		padding: 2rem 0 0 0;
 	}
 	& .FooterMidSections > img {
 		filter: grayscale(1);
 		opacity: 0.5;
 	}
+
+	/*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 576px) {
+
+	}
+
+	/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 768px) {
+		& .FooterMidSections {
+			width: 50%;
+			padding: 2rem;
+		}
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+		& .FooterMidSections {
+			width: 33.3333%;
+			padding: 2rem;
+		}
+	}
+
+	/*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 1200px) {
+
+	}
 `
 const FooterTop = styled.div`
 	background-color: #0e1116;
+	padding: 2rem 0;
 	
 	& .footerTopInner {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
-		// border-top: 2px solid #0c0f14
+		text-align: center;
 		color: #ddd;
+		font-size: 0.875rem;
 	}
 
 	& .footerAside {
 		width: 100%;
-		padding: 2rem 1rem; 
+		padding: 0 1rem 1rem 1rem; 
 	}
 	& .footerAside > h5 {
 		font-weight: 700;
 		font-size: 1.125rem;
+	}
+
+	/*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 576px) {
+
+	}
+
+	/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 768px) {
+		& .footerTopInner { 
+			font-size: 1rem;
+			text-align: left;
+			flex-wrap: nowrap;
+		}
+		& .footerAside {
+			padding: 2rem 1rem; 
+		}
+	}
+
+	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 992px) {
+
+	}
+
+	/*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+	@media only screen and (min-width: 1200px) {
+
 	}
 `
 const FooterBottom = styled.div`

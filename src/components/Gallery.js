@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     flex-shrink: 0;
     display: flex;
     justify-content: start;
-    align-items: start;
+    align-items: stretch;
     border-top-right-radius: 8rem;
     border-bottom-right-radius: 8rem;
     overflow: hidden;
