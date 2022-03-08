@@ -30,8 +30,8 @@ const WrapperInner = styled.div`
 	}
 `
 const Logo = styled.img`
-	width: 110px;
-	height: 83px;
+	width: 120px;
+	// height: 83px;
 `
 const NavigationList = styled.nav`
 	color: ${({theme}) => theme === 'dark' ? '#ddd' : '#000'};
@@ -70,8 +70,8 @@ const MenuWrapper = styled.div`
 	& > .mb-logo {
 		margin-bottom: 2rem;
 		display: block;
-		filter: grayscale(1);
-		opacity: 0.4
+		// filter: grayscale(1);
+		// opacity: 0.4
 	}
 	& > a + a {
 		display: block;
@@ -83,7 +83,6 @@ const MenuWrapper = styled.div`
 		opacity: 0;
 	}
 	& > a > img {
-		filter: gray;
 		margin: 0 auto;
 	}
 
@@ -160,7 +159,7 @@ const Header = ({ theme }) => {
 		} else {
 			setScrollActive(false);
 			animate(headerRef.current, { height: '120px' });
-			animate(logoRef.current, { height: '83px', width: '110px', filter: 'grayscale(0) brightness(1)' });
+			animate(logoRef.current, { height: '91px', width: '120px' });
 		}
 	}
 
@@ -171,7 +170,7 @@ const Header = ({ theme }) => {
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 				</MenuCloseBtn>
 				<Link className="mb-logo" to="/">
-					<Logo ref={logoRef} src="/images/logo-new.png" alt="Urban Sports Hub" />
+					<Logo ref={logoRef} src="/images/logo-110x83.png" alt="Urban Sports Hub" />
 				</Link>
 				<Link ref={el => menuItemsRef.current[0] = el} to="/about">About</Link>
 				<Link ref={el => menuItemsRef.current[1] = el} to="/sports">Sports</Link>
@@ -184,7 +183,7 @@ const Header = ({ theme }) => {
 				<Container>
 					<WrapperInner>
 						<Link to="/">
-							<Logo ref={logoRef} src="/images/logo-new.png" alt="Urban Sports Hub" />
+							<Logo ref={logoRef} src="/images/logo-120x91.png" alt="Urban Sports Hub" />
 						</Link>
 						<NavigationList theme={theme}>
 							<Link to="/about">About</Link>

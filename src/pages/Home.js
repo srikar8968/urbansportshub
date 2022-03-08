@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "react-router-dom"
 import membership from '../membership'
 import styled from 'styled-components'
 import Container from '../components/Container'

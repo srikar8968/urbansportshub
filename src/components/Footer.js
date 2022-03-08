@@ -27,10 +27,10 @@ const FooterMid = styled.div`
 		padding: 2rem 0 0 0;
 	}
 	& .FooterMidSections > img {
-		filter: grayscale(1);
+		// filter: grayscale(1);
 		width: 110px;
 		height: 83px;
-		opacity: 0.5;
+		// opacity: 0.5;
 	}
 
 	/*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
@@ -149,7 +149,7 @@ const Footer = () => {
 			<Container>
 				<FooterMid>
 					<div className="FooterMidSections">
-						<img src="/images/logo-new.png" alt="Urban Sports Hub" /><br/>
+						<img src="/images/logo-110x83.png" alt="Urban Sports Hub" /><br/>
 						<p>Urban Sports, is the precise address for all your sport needs. Our vision is to develop a fit community all around. Come, Sweat, Live, Love & Hustle!</p>
 					</div>
 					<div className="FooterMidSections">
