@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 import { useParams } from 'react-router-dom'
 import Container from '../../components/Container'
 import HeroContainer from "../../components/HeroContainer"
@@ -13,6 +14,7 @@ const Wrapper = styled(HeroContainer)`
 	background-repeat: no-repeat;
 	padding: 90px 0 0 0;
 	position: relative;
+	text-align: center;
 
 	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
 	@media only screen and (min-width: 992px) {
@@ -25,6 +27,7 @@ const WrapperInner = styled.div`
 	justify-content: start;
 	align-items: start;
 	flex-wrap: wrap;
+	text-align: left;
 `
 const Content = styled.div`
 	width: 100%;
@@ -55,6 +58,15 @@ const SectionHeader = styled.h1`
         font-size: 4rem;
 		margin-bottom: 2rem;
 	}
+`
+const Button = styled(Link)`
+	padding: 1rem 2rem;
+	border: 2px solid #1e1e1e;
+	color: #1e1e1e;
+	font-weight: 600;
+	border-radius: 2rem;
+	display: inline-block;
+	margin: 0 auto;
 `
 
 const Sport = () => {
@@ -89,6 +101,7 @@ const Sport = () => {
 					<p ref={contentRef} dangerouslySetInnerHTML={{__html: _sport.content}} ></p>
 				</Content>
 			</WrapperInner>
+			<Button to="/membership#priceList">View Membership Plans</Button>
 		</Wrapper>
 	)
 }

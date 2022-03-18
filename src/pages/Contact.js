@@ -74,6 +74,7 @@ const Button = styled.button`
 
 const FrameWrapper = styled.div`
 	background-color: #ccc;
+	border-top: 1px solid #dfdfdf;
 `
 const Contact = () => {
 	return (
