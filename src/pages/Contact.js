@@ -99,7 +99,7 @@ const Contact = () => {
 							urbansportshub@gmail.com
 							<br/><br/>
 							<strong>Phone No.:</strong><br/>
-							9999999999
+							+91 9182716220
 						</p>
 					</LeftAside>
 					<RightAside>

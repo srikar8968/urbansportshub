@@ -158,7 +158,7 @@ const Home = () => {
     			<HeroContent>
                     <Container>
                         <HeroTagline>urban sports hub</HeroTagline>
-                        <HeroTitle>Come, find your <span className="txt-primary">Sport</span> here!</HeroTitle>
+                        <HeroTitle>Fitness, Fun <span className="txt-primary">and</span> Food</HeroTitle>
                     </Container>
                 </HeroContent>
     		</HeroWrapper>

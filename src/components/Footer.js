@@ -141,7 +141,7 @@ const Footer = () => {
 						<h5>Email & Call</h5>
 						<p>
 							Email: <a href="mailto:urbansportshub@gmail.com">urbansportshub@gmail.com</a><br/>
-							Phone: <a href="tel:99999999">+91 9999999999</a>
+							Phone: <a href="tel:+919182716220">+91 9182716220</a>
 						</p>
 					</div>
 				</Container>
