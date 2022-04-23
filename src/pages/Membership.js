@@ -236,10 +236,10 @@ const Membership = () => {
                                     <tr key={index}>
                                         <td className="plan">{ planItem?.name }</td>
 
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+ GST</small></td>
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+ GST</small></td>
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+ GST</small></td>
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+18% GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+18% GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+18% GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+18% GST</small></td>
                                     </tr>
                                 )) }
                             </tbody>
@@ -265,10 +265,10 @@ const Membership = () => {
                                     <tr key={index}>
                                         <td className="plan">{ planItem?.name }</td>
 
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+ GST</small></td>
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+ GST</small></td>
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+ GST</small></td>
-                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+ GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+18% GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+18% GST</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+18% GST<br/>(1 month free)</small></td>
+                                        <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+18% GST<br/>(2 months free)</small></td>
                                     </tr>
                                 )) }
                             </tbody>

@@ -234,28 +234,28 @@ export const fullClub = {
         {
             name: 'Individual',
             price: {
-                monthly: 4999,
-                quarterly: 14500,
-                halfYearly: 25500,
-                annual: 48000
+                monthly: 5999,
+                quarterly: 16197,
+                halfYearly: 35994,
+                annual: 71988
             }
         },
         {
             name: 'Couple',
             price: {
-                monthly: 7499,
-                quarterly: 20250,
-                halfYearly: 36000,
-                annual: 63000
+                monthly: 8499,
+                quarterly: 22947,
+                halfYearly: 50994,
+                annual: 101988
             }
         },
         {
             name: 'Family',
             price: {
-                monthly: 9999,
-                quarterly: 27500,
-                halfYearly: 51000,
-                annual: 96000
+                monthly: 11999,
+                quarterly: 32397,
+                halfYearly: 71994,
+                annual: 143988
             }
         }
     ]

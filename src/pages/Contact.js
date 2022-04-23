@@ -93,7 +93,7 @@ const Contact = () => {
 					 	<br/>
 						<p>
 							<strong>Address</strong>: <br/>
-							Plot No: 132, Surya Nagar Colony, Old Alwal, Secunderabad, Telangana – 500010
+							Door No: 1-5-318/6/2/1/NR, Surya Nagar, Old Alwal, Telangana - 500010
 							<br/><br/>
 							<strong>Email:</strong><br/>
 							urbansportshub@gmail.com

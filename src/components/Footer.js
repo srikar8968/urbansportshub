@@ -74,7 +74,12 @@ const FooterTop = styled.div`
 
 	& .footerAside {
 		width: 100%;
+		text-align: right;
 		padding: 1rem 0; 
+	}
+	& .footerAside + .footerAside {
+		text-align: left;
+		border-left: 2px solid rgba(0, 0, 0, 0.5);
 	}
 	& .footerAside > h5 {
 		font-weight: 700;
@@ -131,13 +136,6 @@ const Footer = () => {
 						</p>
 					</div>
 					<div className="footerAside">
-						<h5>Summer Camp</h5>
-						<p>
-							Monday-Friday: 9:00AM - 5:00PM <br/>
-							Satuarday & Sunday: 11:00AM - 3:00PM
-						</p>
-					</div>
-					<div className="footerAside">
 						<h5>Email & Call</h5>
 						<p>
 							Email: <a href="mailto:urbansportshub@gmail.com">urbansportshub@gmail.com</a><br/>
@@ -166,9 +164,7 @@ const Footer = () => {
 						<h4>Find Us</h4>
 						<p>
 							<i>Address</i><br/>
-							Plot No: 132,
-							Surya Nagar Colony,
-							Old Alwal, Secunderabad, Telangana – 500010
+							Door No: 1-5-318/6/2/1/NR, Surya Nagar, Old Alwal, Telangana - 500010
 						</p>
 						<p>
 							<i>Hours</i><br/>
