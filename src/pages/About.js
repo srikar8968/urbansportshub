@@ -127,10 +127,22 @@ const About = () => {
 					<li>Gymnasium</li>
 					<li>Badminton Court</li>
 					<li>Cricket</li>
+					<li>Yoga</li>
+					<li>Zumba</li>
+					<li>Lawn Tennis</li>
 				</ul>
 				<br/>
 				Apart from this, we provide units such as restaurants and a pool-side party lounge to give you pleasing, cozy and a relishing experience out of the hectic day you have. The facilities for the members include:
 				<ul>
+					<li>24/7 CCTV Surveillance</li>
+					<li>Safety Lockers</li>
+					<li>Personalised Trainers</li>
+					<li>Coaching Camps</li>
+					<li>Ladies Exclusive Slots</li>
+					<li>COVID Safety Protocol</li>
+					<li>Nutritionist Consultation</li>
+					<li>Sports Accessories</li>
+					<li>Refreshments</li>
 					<li>Parking Area</li>
 					<li>Dressing &amp; Locker Rooms</li>
 					<li>Washrooms</li>

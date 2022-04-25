@@ -13,7 +13,7 @@ const FacilityWrapper = styled.div`
     text-align: center;
 `
 const FacilitySection = styled(Link)`
-    display: flex;
+    display: ${({show}) => show ? 'flex' : 'none'};
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -105,7 +105,8 @@ const SportsGallery = ({ membership }) => {
                 to={`/sports/${facility.name.toLowerCase()}`}
                 key={facility.name} 
                 lastchild={ (membership.length === index+1) ? true : false } 
-                bgimage={facility.image}>
+                bgimage={facility.image}
+                show={facility.content.length > 0} >
                 <div className="faciltyInner">
                     <SectionTitle>{ facility.name }</SectionTitle>
                     <p>{ facility.description }</p>

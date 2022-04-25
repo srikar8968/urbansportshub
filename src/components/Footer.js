@@ -131,8 +131,7 @@ const Footer = () => {
 					<div className="footerAside">
 						<h5>Coaching Sessions</h5>
 						<p>
-							Monday-Friday: 9:00AM - 5:00PM <br/>
-							Satuarday & Sunday: 11:00AM - 3:00PM
+							Monday-Sunday: 5:00AM - 10:00PM
 						</p>
 					</div>
 					<div className="footerAside">

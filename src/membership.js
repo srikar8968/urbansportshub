@@ -1,6 +1,7 @@
 const membership = [
     {
         name: 'Swimming',
+        hourly: false,
         description: 'Don’t be afraid to dive in, you will find what real happiness means, once you get down deep here! be it a pool or in life.',
         image: 'swimming.jpg',
         imageFormat: 'jpg',
@@ -25,10 +26,95 @@ const membership = [
             {
                 name: 'Individual',
                 price: {
-                    monthly: 1200,
-                    quarterly: 7597.15,
-                    halfYearly: 75971.50,
+                    monthly: 3500,
+                    quarterly: 9450,
+                    halfYearly: 21000,
+                    annual: 42000
+                }
+            },
+            {
+                name: 'Couple',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
                     annual: 136748.70
+                }
+            },
+            {
+                name: 'Family',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
+                }
+            }
+        ]
+    },
+    {
+        name: 'Badminton',
+        hourly: false,
+        description: 'Want to know how to smash all the tough hurdles with full of a gush of wind in life? We have the best answer for this “Badminton”.',
+        image: 'shuttle.jpg',
+        imageFormat: 'jpg',
+        content: `Hyderabad has been on the buzz when it is badminton! The glory is due to the legacy of the rise in ace sportspersons from this very same city such as Saina Nehwal, Srikanth Kidambi, jwala gutta, P.V. Sindhu and many more. This developed a passion & love among the citizens towards badminton. Hyderabad being extremely crowded runs out of the place and proper amenities that suit the sport, which we promise to fix with the best.
+
+            At Urban Sports, we provide you indoor badminton courts that have no effect from the outdoor conditions, that will help you stick to the courts around the year. The courts provided are promised to be of international standardization’s such as equipment, training, and a wonderful infrastructure & facilities. Our coaching professionals will help you with everything, right from racquet orientation to choosing the perfect gear to play in.
+
+            Badminton as a sports activity is a great way to keep fit due to the intense & terrific cardio-vascular exercise. It’s relatively inexpensive and is great leisure & recreational activity catering to all ages. The stack of tremendous health benefits include:
+            &bull; Optimum heart health
+            &bull; Control on diabetes
+            &bull; Curbs hypertension
+            &bull; Improved Lung Function
+            &bull; Improves strength, flexibility, stamina, and Productivity
+            &bull; Increases rate of metabolism
+            &bull; Sharpens the mind`,
+        plans: [
+            {
+                name: 'Individual',
+                price: {
+                    monthly: 5000,
+                    quarterly: 13500,
+                    halfYearly: 30000,
+                    annual: 60000
+                }
+            },
+            {
+                name: 'Couple',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
+                }
+            },
+            {
+                name: 'Family',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
+                }
+            }
+        ]
+    },
+    {
+        name: 'Badminton (Kids)',
+        hourly: false,
+        description: 'Want to know how to smash all the tough hurdles with full of a gush of wind in life? We have the best answer for this “Badminton”.',
+        image: 'shuttle.jpg',
+        imageFormat: 'jpg',
+        content: ``,
+        plans: [
+            {
+                name: 'Individual',
+                price: {
+                    monthly: 3000,
+                    quarterly: 8100,
+                    halfYearly: 18000,
+                    annual: 36000
                 }
             },
             {
@@ -53,6 +139,7 @@ const membership = [
     },
     {
         name: 'Futsal',
+        hourly: true,
         description: 'Remember one of the rules of life, you can learn all about life with a ball at your feet. Don’t you? you will, once you are here with us.',
         image: 'futsal.jpg',
         imageFormat: 'jpg',
@@ -93,6 +180,7 @@ const membership = [
     },
     {
         name: 'Gym',
+        hourly: false,
         description: 'Worried from situations prevailed. Want to withstand life’s heavy force upon you? Push them all away, just like you do weights!',
         image: 'gym.jpg',
         imageFormat: 'jpeg',
@@ -113,57 +201,10 @@ const membership = [
             {
                 name: 'Individual',
                 price: {
-                    monthly: 1200,
-                    quarterly: 7597.15,
-                    halfYearly: 75971.50,
-                    annual: 136748.70
-                }
-            },
-            {
-                name: 'Couple',
-                price: {
-                    monthly: 15194.30,
-                    quarterly: 37985.75,
-                    halfYearly: 76047.47,
-                    annual: 136748.70
-                }
-            },
-            {
-                name: 'Family',
-                price: {
-                    monthly: 15194.30,
-                    quarterly: 37985.75,
-                    halfYearly: 84404.34,
-                    annual: 136748.70
-                }
-            }
-        ]
-    },
-    {
-        name: 'Badminton',
-        description: 'Want to know how to smash all the tough hurdles with full of a gush of wind in life? We have the best answer for this “Badminton”.',
-        image: 'shuttle.jpg',
-        imageFormat: 'jpg',
-        content: `Hyderabad has been on the buzz when it is badminton! The glory is due to the legacy of the rise in ace sportspersons from this very same city such as Saina Nehwal, Srikanth Kidambi, jwala gutta, P.V. Sindhu and many more. This developed a passion & love among the citizens towards badminton. Hyderabad being extremely crowded runs out of the place and proper amenities that suit the sport, which we promise to fix with the best.
-
-            At Urban Sports, we provide you indoor badminton courts that have no effect from the outdoor conditions, that will help you stick to the courts around the year. The courts provided are promised to be of international standardization’s such as equipment, training, and a wonderful infrastructure & facilities. Our coaching professionals will help you with everything, right from racquet orientation to choosing the perfect gear to play in.
-
-            Badminton as a sports activity is a great way to keep fit due to the intense & terrific cardio-vascular exercise. It’s relatively inexpensive and is great leisure & recreational activity catering to all ages. The stack of tremendous health benefits include:
-            &bull; Optimum heart health
-            &bull; Control on diabetes
-            &bull; Curbs hypertension
-            &bull; Improved Lung Function
-            &bull; Improves strength, flexibility, stamina, and Productivity
-            &bull; Increases rate of metabolism
-            &bull; Sharpens the mind`,
-        plans: [
-            {
-                name: 'Individual',
-                price: {
-                    monthly: 1200,
-                    quarterly: 7597.15,
-                    halfYearly: 75971.50,
-                    annual: 136748.70
+                    monthly: 2500,
+                    quarterly: 6750,
+                    halfYearly: 15000,
+                    annual: 30000
                 }
             },
             {
@@ -188,6 +229,7 @@ const membership = [
     },
     {
         name: 'Cricket',
+        hourly: true,
         description: 'Whether an innings of cricket or in real life, one should stay aware, strong and quick to face the tough yorkers on to you with a passion. So, exactly this is why we are here!',
         image: 'cricket.jpg',
         imageFormat: 'jpg',
@@ -225,14 +267,125 @@ const membership = [
                 }
             }
         ]
-    }
+    },
+    {
+        name: 'Yoga',
+        hourly: false,
+        description: '',
+        image: '',
+        imageFormat: 'jpg',
+        content: ``,
+        plans: [
+            {
+                name: 'Individual',
+                price: {
+                    monthly: 2000,
+                    quarterly: 5400,
+                    halfYearly: 12000,
+                    annual: 24000
+                }
+            },
+            {
+                name: 'Couple',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
+                }
+            },
+            {
+                name: 'Family',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
+                }
+            }
+        ]
+    },
+    {
+        name: 'Zumba',
+        hourly: false,
+        description: '',
+        image: '',
+        imageFormat: 'jpg',
+        content: ``,
+        plans: [
+            {
+                name: 'Individual',
+                price: {
+                    monthly: 2500,
+                    quarterly: 6750,
+                    halfYearly: 15000,
+                    annual: 30000
+                }
+            },
+            {
+                name: 'Couple',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
+                }
+            },
+            {
+                name: 'Family',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
+                }
+            }
+        ]
+    },
+    {
+        name: 'Combo \n(Gym, Yoga, Zumba)',
+        hourly: false,
+        description: '',
+        image: '',
+        imageFormat: 'jpg',
+        content: ``,
+        plans: [
+            {
+                name: 'Individual',
+                price: {
+                    monthly: 4000,
+                    quarterly: 10800,
+                    halfYearly: 24000,
+                    annual: 48000
+                }
+            },
+            {
+                name: 'Couple',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 76047.47,
+                    annual: 136748.70
+                }
+            },
+            {
+                name: 'Family',
+                price: {
+                    monthly: 15194.30,
+                    quarterly: 37985.75,
+                    halfYearly: 84404.34,
+                    annual: 136748.70
+                }
+            }
+        ]
+    },
 ];
 
 export const fullClub = {
     name: 'Full Club Membership - Single, Couple, Family (upto 4)',
     plans: [
         {
-            name: 'Individual',
+            name: 'Single',
             price: {
                 monthly: 5999,
                 quarterly: 16197,
@@ -257,6 +410,20 @@ export const fullClub = {
                 halfYearly: 71994,
                 annual: 143988
             }
+        }
+    ]
+}
+
+export const memberSports = {
+    name: 'Direct Slot Booking',
+    games: [
+        {
+            name: 'Futsal',
+            price: 900
+        },
+        {
+            name: 'Cricket',
+            price: 900
         }
     ]
 }
