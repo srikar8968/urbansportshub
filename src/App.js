@@ -15,8 +15,10 @@ import Restaurant from './pages/Restaurant'
 import NotFound from './pages/NotFound'
 import Membership from './pages/Membership';
 import Emergence from './pages/Emergence';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Sports from './pages/Sports';
+import Events from './pages/events/Events';
 
 import Sport from './pages/sports/Sport';
 
@@ -25,7 +27,7 @@ const Wrapper = styled.div`
 `
 
 function App() {
-  const darkPages = ['/', '/pool-based-party-lounge', '/restaurant']
+  const darkPages = ['/', '/pool-based-party-lounge', '/gallery', '/restaurant', '/events/corporate', '/events/birthday', '/events/other']
   const location = useLocation();
   const url = window.location.href;
   const hostname = window.location.protocol + '//' + window.location.host;
@@ -61,11 +63,13 @@ function App() {
             <Route path="/sports" element={<Sports />} exact />
             
             <Route path="/sports/:sport" element={<Sport />} />
+            <Route path="/events/:event" element={<Events />} />
 
             <Route path="/membership" element={<Membership />} />
             <Route path="/pool-based-party-lounge" element={<Lounge />} />
             <Route path="/restaurant" element={<Restaurant />} />
             <Route path="/how-the-idea-emerged" element={<Emergence />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
 
             <Route path="*" element={<NotFound />} />

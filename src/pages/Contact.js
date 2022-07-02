@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Container from '../components/Container'
 import SocialIcons from '../components/SocialIcons'
 import { Helmet } from "react-helmet";
+import SiteForm from '../components/form/SiteForm'
 
 const WrapperInner = styled.div`
 	display: flex;
@@ -34,42 +35,16 @@ const RightAside = styled.div`
 	}
 `
 const ConatctHeader = styled.h1`
-	font-size: 2rem;
+	font-size: ${({sm}) => sm ? '1rem' : '2rem'};
 	color: #2e2e2e;
 	line-height: 1.2;
 	margin-bottom: 1rem;
 
 	/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
 	@media only screen and (min-width: 992px) {
-		font-size: 4rem;
-		margin-bottom: 2rem;
+		font-size: ${({sm}) => sm ? '2rem' : '4rem'};
+		margin-bottom: ${({sm}) => sm ? '.5rem' : '2rem'};
 	}
-`
-
-const FormControl = styled.div`
-	display: flex;
-	align-items: center;
-	& > input {
-		width: 50%;
-	}
-`
-const Input = styled.input`
-	width: 100%;
-	border: 1px solid;
-	padding: 1.5rem 2.5rem;
-	border-radius: 4px;
-	margin: .5rem;
-	display: inline-block;
-
-	&::placeholder {
-		font-size: 1.125rem;
-	}
-`
-const Button = styled.button`
-	padding: 1rem 2rem;
-	background-color: #0a0a0e;
-	color: #ddd;
-	margin: 0 .5rem;
 `
 
 const FrameWrapper = styled.div`
@@ -77,6 +52,7 @@ const FrameWrapper = styled.div`
 	border-top: 1px solid #dfdfdf;
 `
 const Contact = () => {
+	
 	return (
 		<>
 			<Helmet>
@@ -103,19 +79,9 @@ const Contact = () => {
 						</p>
 					</LeftAside>
 					<RightAside>
+						<ConatctHeader sm>Get In Touch</ConatctHeader>
 						<span>&nbsp;&nbsp;Your personal details are safe with us <strong><Link to="/about">Privacy Policy</Link></strong></span>
-						<form>
-							<FormControl>
-								<Input type="text" placeholder="First Name" />
-								<Input type="text" placeholder="Last Name" />
-							</FormControl>
-							<FormControl>
-								<Input type="text" placeholder="Telephone" />
-								<Input type="text" placeholder="Email Address" />
-							</FormControl>
-							<Input as="textarea" rows="5" type="text" placeholder="Message" />
-							<Button type="button">Submit</Button>
-						</form>
+						<SiteForm page="Contact Us" />
 					</RightAside>
 				</WrapperInner>
 			</Container>

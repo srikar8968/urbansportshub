@@ -163,7 +163,7 @@ const Home = () => {
                 </HeroContent>
     		</HeroWrapper>
 
-            <ClientWrapper>
+            {/*<ClientWrapper>
                 <Container>
                     <ClientSection>
                         { clients.map(client => (
@@ -173,7 +173,7 @@ const Home = () => {
                         )) }
                     </ClientSection>
                 </Container>
-            </ClientWrapper>
+            </ClientWrapper>*/}
             
             <SportsGallery membership={membership} />
         </>

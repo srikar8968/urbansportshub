@@ -84,7 +84,7 @@ const Gallery = ({ sport, format }) => {
         <Wrapper>
             { iterations.map((value, index) => (
                 <Item key={index} ref={el => itemsRef.current[index] = el}>
-                    <img src={`/images/sports/${sport}/${value}.${format}`} alt={`${sport}-${value}`} />
+                    <img src={`/images/sports/${sport}/${value}_1.${format}`} alt={`${sport}-${value}`} />
                 </Item>
             )) }
         </Wrapper>

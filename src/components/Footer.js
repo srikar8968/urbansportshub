@@ -66,7 +66,7 @@ const FooterTop = styled.div`
 	& .footerTopInner {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: center;
 		text-align: center;
 		color: #ddd;
 		font-size: 0.875rem;
@@ -74,12 +74,7 @@ const FooterTop = styled.div`
 
 	& .footerAside {
 		width: 100%;
-		text-align: right;
 		padding: 1rem 0; 
-	}
-	& .footerAside + .footerAside {
-		text-align: left;
-		border-left: 2px solid rgba(0, 0, 0, 0.5);
 	}
 	& .footerAside > h5 {
 		font-weight: 700;
@@ -97,11 +92,10 @@ const FooterTop = styled.div`
 
 		& .footerTopInner { 
 			font-size: 1rem;
-			text-align: left;
 			flex-wrap: nowrap;
 		}
 		& .footerAside {
-			padding: 2rem 1rem; 
+			padding: 1rem; 
 		}
 	}
 
@@ -128,12 +122,6 @@ const Footer = () => {
 		<FooterWrapper>
 			<FooterTop>
 				<Container className="footerTopInner">
-					<div className="footerAside">
-						<h5>Coaching Sessions</h5>
-						<p>
-							Monday-Sunday: 5:00AM - 10:00PM
-						</p>
-					</div>
 					<div className="footerAside">
 						<h5>Email & Call</h5>
 						<p>
@@ -167,8 +155,7 @@ const Footer = () => {
 						</p>
 						<p>
 							<i>Hours</i><br/>
-							Monday—Friday: 9:00AM–5:00PM
-							Saturday & Sunday: 11:00AM–3:00PM
+							Monday-Sunday: 5:00AM - 10:00PM
 						</p>
 					</div>
 				</FooterMid>

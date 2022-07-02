@@ -26,10 +26,10 @@ const membership = [
             {
                 name: 'Individual',
                 price: {
-                    monthly: 3500,
-                    quarterly: 9450,
-                    halfYearly: 21000,
-                    annual: 42000
+                    monthly: 2500,
+                    quarterly: 6750,
+                    halfYearly: 15000,
+                    annual: 30000
                 }
             },
             {
@@ -74,43 +74,6 @@ const membership = [
             {
                 name: 'Individual',
                 price: {
-                    monthly: 5000,
-                    quarterly: 13500,
-                    halfYearly: 30000,
-                    annual: 60000
-                }
-            },
-            {
-                name: 'Couple',
-                price: {
-                    monthly: 15194.30,
-                    quarterly: 37985.75,
-                    halfYearly: 76047.47,
-                    annual: 136748.70
-                }
-            },
-            {
-                name: 'Family',
-                price: {
-                    monthly: 15194.30,
-                    quarterly: 37985.75,
-                    halfYearly: 84404.34,
-                    annual: 136748.70
-                }
-            }
-        ]
-    },
-    {
-        name: 'Badminton (Kids)',
-        hourly: false,
-        description: 'Want to know how to smash all the tough hurdles with full of a gush of wind in life? We have the best answer for this “Badminton”.',
-        image: 'shuttle.jpg',
-        imageFormat: 'jpg',
-        content: ``,
-        plans: [
-            {
-                name: 'Individual',
-                price: {
                     monthly: 3000,
                     quarterly: 8100,
                     halfYearly: 18000,
@@ -139,7 +102,7 @@ const membership = [
     },
     {
         name: 'Futsal',
-        hourly: true,
+        hourly: false,
         description: 'Remember one of the rules of life, you can learn all about life with a ball at your feet. Don’t you? you will, once you are here with us.',
         image: 'futsal.jpg',
         imageFormat: 'jpg',
@@ -152,10 +115,10 @@ const membership = [
             {
                 name: 'Individual',
                 price: {
-                    monthly: 1200,
-                    quarterly: 7597.15,
-                    halfYearly: 75971.50,
-                    annual: 136748.70
+                    monthly: 2500,
+                    quarterly: 6750,
+                    halfYearly: 15000,
+                    annual: 30000
                 }
             },
             {
@@ -183,7 +146,7 @@ const membership = [
         hourly: false,
         description: 'Worried from situations prevailed. Want to withstand life’s heavy force upon you? Push them all away, just like you do weights!',
         image: 'gym.jpg',
-        imageFormat: 'jpeg',
+        imageFormat: 'jpg',
         content: `The culture of exercising in India is from the very ancient times but, has been extinct, and re-emerging after quite some time in a much-modernized manner as “GYM”. Around the world, people are demanding new and varying training styles and personalized instruction to reach their Health and Fitness goals. The Fitness industry is being one of the most successful industries. The penetration of the fitness industry has made a revolution in daily lifestyles and a whopping interest to invest in rejuvenating their health.
 
             In this world, the very best and a long lasting outfit someone can own can be their own “BODY”. Every one of us dreams of being ripped, build muscle, lose fat and maintain the body. Believe in your dream, we help your dream work with our top-notch equipment and trainers that tailor the best program that suit your profile
@@ -403,7 +366,7 @@ export const fullClub = {
             }
         },
         {
-            name: 'Family',
+            name: 'Family \n(upto 4)',
             price: {
                 monthly: 11999,
                 quarterly: 32397,

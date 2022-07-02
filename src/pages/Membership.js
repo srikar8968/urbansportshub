@@ -228,6 +228,34 @@ const Membership = () => {
                 </div>
 
                 <MembershipBox id="priceList">
+
+                    <MembershipTabs>
+                        <MembershipTab style={{ width: '100%' }} active={false}>{ fullClub.name }</MembershipTab>
+                    </MembershipTabs>
+                    <MembershipPlanBox>
+                        <MembershipPlanTable>
+                            <thead>
+                                <tr>
+                                    <th>PLANS</th>
+                                    <th>MONTHLY</th>
+                                    <th>QUARTERLY</th>
+                                    <th>HALF YEARLY</th>
+                                    <th>ANNUAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { fullClub?.plans?.map((planItem, index) => (
+                                    <tr key={index}>
+                                        <td className="plan">{ planItem?.name }</td>
+
+                                        <PriceShowCase planItem={planItem} />
+                                    </tr>
+                                )) }
+                            </tbody>
+                        </MembershipPlanTable>
+                    </MembershipPlanBox>
+                    <br/>
+                    
                     {/*<MembershipTabs>
                         { membership?.map((membershipItem, index) => (
                             <MembershipTab 
@@ -290,33 +318,8 @@ const Membership = () => {
                             </tbody>
                         </MembershipPlanTable>
                     </MembershipPlanBox>
-                    <br/>
 
-                    <MembershipTabs>
-                        <MembershipTab style={{ width: '100%' }} active={false}>{ fullClub.name }</MembershipTab>
-                    </MembershipTabs>
-                    <MembershipPlanBox>
-                        <MembershipPlanTable>
-                            <thead>
-                                <tr>
-                                    <th>PLANS</th>
-                                    <th>MONTHLY</th>
-                                    <th>QUARTERLY</th>
-                                    <th>HALF YEARLY</th>
-                                    <th>ANNUAL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { fullClub?.plans?.map((planItem, index) => (
-                                    <tr key={index}>
-                                        <td className="plan">{ planItem?.name }</td>
-
-                                        <PriceShowCase planItem={planItem} />
-                                    </tr>
-                                )) }
-                            </tbody>
-                        </MembershipPlanTable>
-                    </MembershipPlanBox>
+                    
                 </MembershipBox>
             </Container>
         </MembershipWrapper>
@@ -330,10 +333,10 @@ const PriceShowCase = ({planItem}) => {
 
     return (
         <>
-            <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) } <small>+ GST</small></td>
-            <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) } <small>+ GST</small></td>
-            <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <small>+ GST<br/>(1 month free)</small></td>
-            <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <small>+ GST<br/>(2 months free)</small></td>
+            <td>&#8377; { toCurrencyFormat(planItem?.price?.monthly) }</td>
+            <td>&#8377; { toCurrencyFormat(planItem?.price?.quarterly) }</td>
+            <td>&#8377; { toCurrencyFormat(planItem?.price?.halfYearly) } <br/><small>(1 month free)</small></td>
+            <td>&#8377; { toCurrencyFormat(planItem?.price?.annual) } <br/><small>(2 months free)</small></td>
         </>
     )
 }

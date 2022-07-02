@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Link, useLocation } from "react-router-dom";
 import { animate, spring, stagger, timeline } from "motion"
 import Container from './Container'
+import Menu from './Menu'
+import events from '../events'
 
 const Wrapper = styled.div`
 	background-color: ${({active, theme}) => active ? (theme === 'dark' ? 'rgba(5, 6, 9, 0.9)' : 'rgba(255,255,255,0.8)') : 'none'};
@@ -34,7 +36,7 @@ const Logo = styled.img`
 	// height: 83px;
 `
 const NavigationList = styled.nav`
-	color: ${({theme}) => theme === 'dark' ? '#ddd' : '#000'};
+	color: ${({theme}) => theme === 'dark' ? '#fff' : '#000'};
 	font-size: 1rem;
 	display: none;
 
@@ -73,7 +75,7 @@ const MenuWrapper = styled.div`
 		// filter: grayscale(1);
 		// opacity: 0.4
 	}
-	& > a + a {
+	& > a, & > .menuItem {
 		display: block;
 		font-size: 1.5rem;
 		line-height: 1.5;
@@ -81,6 +83,9 @@ const MenuWrapper = styled.div`
 		margin-bottom: 1rem;
 		transform: translateX(80px)
 		opacity: 0;
+	}
+	& > .menuItem > span {
+		margin-left: 0 !important;
 	}
 	& > a > img {
 		margin: 0 auto;
@@ -108,7 +113,7 @@ const MenuOpenBtn = styled.button`
 	right: 0;
 	transform: translateY(-50%);
 	padding: 1rem;
-	color: #727272;
+	color: ${({theme}) => theme === 'dark' ? '#fff' : '#727272'};
 
 	& > svg {
 		width: 1.25rem;
@@ -175,9 +180,11 @@ const Header = ({ theme }) => {
 				<Link ref={el => menuItemsRef.current[0] = el} to="/about">About</Link>
 				<Link ref={el => menuItemsRef.current[1] = el} to="/sports">Sports</Link>
 				<Link ref={el => menuItemsRef.current[2] = el} to="/membership">Memberships</Link>
-				<Link ref={el => menuItemsRef.current[3] = el} to="/pool-based-party-lounge">Party Lounge</Link>
+				<Menu menuItemRef={el => menuItemsRef.current[3] = el} path="/pool-based-party-lounge" items={[...events]}>| Events</Menu>
+				{/* <Link ref={el => menuItemsRef.current[4] = el} to="/pool-based-party-lounge">Party Lounge</Link> */}
 				<Link ref={el => menuItemsRef.current[4] = el} to="/restaurant">Restaurant</Link>
-				<Link ref={el => menuItemsRef.current[5] = el} to="/contact">Contact</Link>
+				<Link ref={el => menuItemsRef.current[5] = el} to="/gallery">Gallery</Link>
+				<Link ref={el => menuItemsRef.current[6] = el} to="/contact">Contact</Link>
 			</MenuWrapper>
 			<Wrapper theme={theme} ref={headerRef} active={scrollActive}>
 				<Container>
@@ -189,11 +196,13 @@ const Header = ({ theme }) => {
 							<Link to="/about">About</Link>
 							<Link to="/sports">Sports</Link>
 							<Link to="/membership">Memberships</Link>
-							<Link to="/pool-based-party-lounge">Party Lounge</Link>
+							<Menu path="/pool-based-party-lounge" items={[...events]}>Events</Menu>
+							{/* <Link to="/pool-based-party-lounge">Party Lounge</Link> */}
 							<Link to="/restaurant">Restaurant</Link>
+							<Link to="/gallery">Gallery</Link>
 							<Link to="/contact">Contact</Link>
 						</NavigationList>
-						<MenuOpenBtn onClick={() => setMenuOpen(true)}>
+						<MenuOpenBtn onClick={() => setMenuOpen(true)} theme={theme}>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
 						</MenuOpenBtn>
 					</WrapperInner>
