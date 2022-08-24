@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components';
 import FormSection from './FormSection';
@@ -12,15 +13,46 @@ const Button = styled.button`
     font-weight: 700;
     cursor: pointer;
 `
+const Alert = styled.div`
+    padding: 1rem 2rem;
+    margin-top: .5rem;
+    border-radius: .25rem;
+    background-color: ${({error}) => error ? 'rgba(249, 44, 44, 0.25)' : 'rgba(255,255,255, 0.75)'};
+    color: ${({error}) => error ? '#f92c2c' : '#000'};
+    border: 1px solid ${({error}) => error ? '#f92c2c' : '#fff'};
+`
 
 const SiteForm = ({page, type = 'contact', theme = '#2e2e2e'}) => {
-	const { register, reset, clearErrors, handleSubmit, formState: { errors } } = useForm();
+	const { register, reset, clearErrors, handleSubmit, formState: { errors, isValid } } = useForm();
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [ formAlert, setFormAlert ] = useState([false, null, false]);
 
     const onSubmit = (data) => {
-		alert(JSON.stringify(data));
+        if(!isLoading) {
+            setIsLoading(true);
+            setFormAlert([false, null, false]);
+            // alert(JSON.stringify(data));
+            axios.post('https://urbansportshub.com/api/sendmail/', JSON.stringify(data))
+                .then(res => {
+                    setFormAlert([true, res.data.message, false]);
+                    
+                    reset();
+                    clearErrors();
+                })
+                .catch(err => {
+                    setFormAlert([true, JSON.stringify(err), true]);
+                    console.log(`Error Client: ${JSON.stringify(err)}`);
+                })
+                .then(() => {
+                    setIsLoading(false);
+                });
+        }
 	};
 
     useEffect(() => {
+        setIsLoading(false);
+        setFormAlert([false, null, false]);
+
         return () => {
             reset();
             clearErrors();
@@ -29,6 +61,10 @@ const SiteForm = ({page, type = 'contact', theme = '#2e2e2e'}) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
+            { formAlert[0] && <Alert error={formAlert[2]}>
+                { formAlert[1] }
+            </Alert> }
+            { isLoading && <Alert>Submitting your request</Alert> }
             <Input 
                 type="hidden"
                 name="page"
@@ -71,13 +107,19 @@ const SiteForm = ({page, type = 'contact', theme = '#2e2e2e'}) => {
                 as="textarea"
                 name="message"
                 label={
-                    type === 'contact' ? 'Message' : 'Please enter your requirements\nAnd we will get back to get back to you as soon as possible'
+                    type === 'contact' ? 'Message' : 'Please enter your requirements and we will get back to get back to you as soon as possible'
                 }
                 {...register("message", {required:true})}
                 invalid={errors.message}
                 rows="5"
                 theme={theme} />
-            <Button theme={theme} as="input" type="submit" value="Submit" />
+
+            <Button 
+                theme={theme} 
+                as="input" 
+                disabled={isLoading} 
+                type="submit" 
+                value={isLoading ? 'Submitting...' : 'Submit'} />
         </form>
     )
 }
