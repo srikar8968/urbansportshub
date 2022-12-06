@@ -181,13 +181,13 @@ const Membership = () => {
 		timeline(sequence, { defaultOptions: { duration: 0.5 } });
 	}, [])
 
-    useEffect(() => {
-        const sequence = [
-            [membershipRef.current, { x: [0, -100], opacity: [1, 0] }],
-            [membershipRef.current, { x: [100, 0], opacity: [0, 1] }]
-        ];
-        timeline(sequence, { defaultOptions: { duration: 0.2 } });
-    }, [activeMembership])
+    // useEffect(() => {
+    //     const sequence = [
+    //         [membershipRef.current, { x: [0, -100], opacity: [1, 0] }],
+    //         [membershipRef.current, { x: [100, 0], opacity: [0, 1] }]
+    //     ];
+    //     timeline(sequence, { defaultOptions: { duration: 0.2 } });
+    // }, [activeMembership])
 
     return (
         <MembershipWrapper>
@@ -227,7 +227,7 @@ const Membership = () => {
                     Now think, aren’t they wonderful? You are definitely concerned about your dear ones, isn’t it? So push yourselves and your dearest with love & excitement and you know what, you will be rewarded for this!</div>
                 </div>
 
-                <MembershipBox id="priceList">
+                {/*<MembershipBox id="priceList">
 
                     <MembershipTabs>
                         <MembershipTab style={{ width: '100%' }} active={false}>{ fullClub.name }</MembershipTab>
@@ -256,7 +256,7 @@ const Membership = () => {
                     </MembershipPlanBox>
                     <br/>
                     
-                    {/*<MembershipTabs>
+                    <MembershipTabs>
                         { membership?.map((membershipItem, index) => (
                             <MembershipTab 
                                 active={activeMembership === index} 
@@ -265,7 +265,7 @@ const Membership = () => {
                                     { membershipItem.name }
                             </MembershipTab>
                         )) }
-                    </MembershipTabs>*/}
+                    </MembershipTabs>
                     <MembershipTabs>
                         <MembershipTab style={{ width: '100%' }} active={false}>Individual Sports Membership</MembershipTab>
                     </MembershipTabs>
@@ -320,7 +320,7 @@ const Membership = () => {
                     </MembershipPlanBox>
 
                     
-                </MembershipBox>
+                </MembershipBox>*/}
             </Container>
         </MembershipWrapper>
     )
